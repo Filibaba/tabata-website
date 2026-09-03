@@ -31,10 +31,18 @@ body {
 
 h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; }
 
+/* Headings match the app's display face: San Francisco at Black (900), italic,
+   uppercase. The app also widens it with .fontWidth(.expanded); CSS cannot reach
+   SF's width axis — font-stretch computes to 125% and renders identically, and
+   neither font-variation-settings nor naming an expanded face does better — so
+   the weight carries it alone. A webfont is the only way to match the width.
+   font-stretch is left in for browsers whose system font does expose the axis. */
+
 h1 {
   font-size: clamp(2.7rem, 8vw, 4.2rem);
   font-style: italic;
-  font-weight: 800;
+  font-weight: 900;
+  font-stretch: expanded;
   margin: 0.1em 0 0.3em;
   text-transform: uppercase;
   text-shadow: 0 0 34px rgba(255, 140, 40, 0.55);
@@ -43,7 +51,8 @@ h1 {
 h2 {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-style: italic;
-  font-weight: 800;
+  font-weight: 900;
+  font-stretch: expanded;
   text-transform: uppercase;
   margin: 0 0 0.6em;
 }
@@ -95,7 +104,8 @@ p { margin: 0 0 1em; }
   display: inline-block;
   background: var(--turquoise);
   color: var(--indigo);
-  font-weight: 800;
+  font-weight: 900;
+  font-stretch: expanded;
   font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.02em;
