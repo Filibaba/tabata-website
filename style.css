@@ -174,6 +174,9 @@ details p { margin: 12px 0 4px; }
 
 .closing { text-align: center; }
 .closing h2 { text-shadow: 0 0 30px rgba(255, 140, 40, 0.5); }
+/* Sections cap their paragraphs at 60ch for readability, which here left the
+   button centred inside that narrow box rather than the section. */
+.closing p { max-width: none; }
 
 footer {
   max-width: var(--max);
