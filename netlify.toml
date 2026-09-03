@@ -19,8 +19,18 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Canonical host: one address for the site, so search engines and the association
-# file agree on where it lives.
+# The association file has to be served, not redirected, on every host the app
+# claims — Apple fetches it directly and will not follow a 301. This rewrite
+# (status 200) serves it on www too, and must stay above the redirect below,
+# because Netlify applies the first rule that matches.
+[[redirects]]
+  from = "https://www.pushuptabata.com/.well-known/*"
+  to = "/.well-known/:splat"
+  status = 200
+  force = true
+
+# Canonical host: everything else on www moves to the bare domain, so search
+# engines and shared links agree on one address.
 [[redirects]]
   from = "https://www.pushuptabata.com/*"
   to = "https://pushuptabata.com/:splat"
