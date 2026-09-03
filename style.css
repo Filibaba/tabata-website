@@ -1,0 +1,201 @@
+/* Push-Up Tabata — the app's palette, at web weight. No frameworks, one file. */
+
+:root {
+  --indigo: #090119;
+  --indigo-soft: #150a2e;
+  --magenta: #ff2ecc;
+  --pink: #ff1b8d;
+  --turquoise: #29eee0;
+  --sun: #ffcc4d;
+  --ink: #f4f1ff;
+  --ink-dim: #b9aed6;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--indigo);
+  color: var(--ink);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* The grid horizon, drawn rather than shipped as an image. */
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, rgba(255, 27, 141, 0.28), transparent 60%),
+    radial-gradient(90% 50% at 50% 8%, rgba(255, 204, 77, 0.16), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; }
+
+h1 {
+  font-size: clamp(2.7rem, 8vw, 4.2rem);
+  font-style: italic;
+  font-weight: 800;
+  margin: 0.1em 0 0.3em;
+  text-transform: uppercase;
+  text-shadow: 0 0 34px rgba(255, 140, 40, 0.55);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 0.6em;
+}
+
+h3 { font-size: 1.1rem; margin: 0 0 0.35em; color: var(--turquoise); }
+
+a { color: var(--turquoise); }
+
+p { margin: 0 0 1em; }
+
+/* ---------- hero ---------- */
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 72px) 24px 24px;
+  display: grid;
+  gap: clamp(16px, 4vw, 48px);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 820px) {
+  .hero { grid-template-columns: 1.05fr 0.95fr; padding-bottom: 48px; }
+}
+
+.eyebrow {
+  color: var(--turquoise);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.lede { font-size: 1.15rem; color: var(--ink-dim); max-width: 34em; }
+
+.hero-shot {
+  width: 100%;
+  height: auto;
+  max-width: 380px;
+  justify-self: center;
+  filter: drop-shadow(0 30px 60px rgba(255, 27, 141, 0.35));
+}
+
+/* ---------- calls to action ---------- */
+
+.cta {
+  display: inline-block;
+  background: var(--turquoise);
+  color: var(--indigo);
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 16px clamp(20px, 5vw, 30px);
+  border-radius: 999px;
+  box-shadow: 0 0 28px rgba(41, 238, 224, 0.45);
+  /* One line at every width: the label breaking after "THE" looked like a bug. */
+  white-space: nowrap;
+  font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+}
+
+.cta:hover { background: #fff; }
+
+.fineprint { color: var(--ink-dim); font-size: 0.92rem; }
+
+/* ---------- sections ---------- */
+
+main { max-width: var(--max); margin: 0 auto; padding: 0 24px 8px; }
+
+section { padding: clamp(32px, 6vw, 64px) 0; border-top: 1px solid rgba(255,255,255,0.08); }
+
+section p { color: var(--ink-dim); max-width: 60ch; }
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.features li {
+  background: var(--indigo-soft);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.features p { margin: 0; font-size: 0.97rem; }
+
+/* ---------- faq ---------- */
+
+details {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 1.05rem;
+  list-style: none;
+  padding-right: 28px;
+  position: relative;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  color: var(--turquoise);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+details[open] summary::after { content: "−"; }
+
+details p { margin: 12px 0 4px; }
+
+/* ---------- closing + footer ---------- */
+
+.closing { text-align: center; }
+.closing h2 { text-shadow: 0 0 30px rgba(255, 140, 40, 0.5); }
+
+footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+}
+
+footer p { margin: 0 0 6px; }
+
+/* ---------- article pages ---------- */
+
+.page { max-width: 760px; margin: 0 auto; padding: clamp(28px, 6vw, 64px) 24px; }
+.page h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+.page h2 { font-size: 1.35rem; margin-top: 2em; }
+.page p, .page li { color: var(--ink-dim); }
+.page ul { padding-left: 1.2em; }
+.page li { margin-bottom: 0.5em; }
+.back { display: inline-block; margin-bottom: 8px; font-weight: 600; text-decoration: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

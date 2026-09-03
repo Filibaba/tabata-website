@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pushuptabata.com/sitemap.xml

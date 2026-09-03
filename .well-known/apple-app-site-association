@@ -1,0 +1,24 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["GDHBE4ZKA8.com.filibaba.pushuptabata"],
+        "components": [
+          {
+            "/": "/start",
+            "comment": "Opens the app and begins a workout."
+          },
+          {
+            "/": "/start/*",
+            "comment": "Anything under /start too."
+          },
+          {
+            "/": "/*",
+            "exclude": true,
+            "comment": "Everything else stays on the website, so the landing page is reachable on a phone that has the app."
+          }
+        ]
+      }
+    ]
+  }
+}
