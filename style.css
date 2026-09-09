@@ -91,11 +91,30 @@ p { margin: 0 0 1em; }
 .lede { font-size: 1.15rem; color: var(--ink-dim); max-width: 34em; }
 
 .hero-shot {
+  position: relative;
   width: 100%;
-  height: auto;
   max-width: 380px;
   justify-self: center;
-  filter: drop-shadow(0 30px 60px rgba(255, 27, 141, 0.35));
+}
+
+/* The glow is a gradient behind the phone rather than a drop-shadow on it.
+   A filter on an <img> applies to the element's box until the bitmap has
+   decoded — and width/height reserve that box up front — so WebKit painted a
+   hard pink rectangle around the whole frame on every uncached load, until the
+   phone arrived and the shadow snapped to its silhouette. A gradient cannot
+   square off, and it is already there while the image is still on its way. */
+.hero-shot::before {
+  content: "";
+  position: absolute;
+  inset: 8% -8% 2%;
+  background: radial-gradient(58% 42% at 50% 62%, rgba(255, 27, 141, 0.42), transparent 72%);
+}
+
+.hero-shot img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ---------- calls to action ---------- */
