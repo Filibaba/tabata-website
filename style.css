@@ -110,6 +110,7 @@ p { margin: 0 0 1em; }
   background: radial-gradient(58% 42% at 50% 62%, rgba(255, 27, 141, 0.42), transparent 72%);
 }
 
+.hero-shot picture,
 .hero-shot img {
   position: relative;
   display: block;
